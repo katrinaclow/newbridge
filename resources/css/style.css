@@ -1,0 +1,272 @@
+html, body {
+    background: url('https://newbridge-media.s3.us-east-2.amazonaws.com/band-photo-2024.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: fixed;
+    right: 10px;
+    top: 18px;
+    z-index: 1000;
+}
+
+.content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.bandname {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #fff;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.bio {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.bio-title {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.bio-content {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.bio-content p {
+    margin-bottom: 20px;
+}
+
+.contact {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.contact-title {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.contact-content {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.8); /* Make the form background slightly opaque */
+    color: #fff; /* Set a dark color for text inside the form */
+}
+
+.form-input {
+    background-color: #fff; /* White background for input fields */
+    color: #333; /* Dark text color for input fields */
+    border: 1px solid #ddd; /* Light border for input fields */
+    padding: 10px; /* Add padding for better spacing */
+    font-size: 16px; /* Ensure font size is readable */
+}
+
+.form-input::placeholder {
+    color: #aaa; /* Light color for placeholder text */
+}
+
+.submit-button {
+    background-color: #007bff; /* Set a blue background for the submit button */
+    color: #fff; /* White text color for the button */
+    border: none; /* Remove default border */
+    padding: 12px 20px; /* Add padding for the button */
+    font-size: 16px; /* Ensure font size is readable */
+}
+
+.listen {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.listen-title {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.listen-content {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Music Player Styles */
+#listen .player-ctn {
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 20px auto;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#myBar {
+    width: 0;
+    height: 5px;
+    background-color: #fffae6;
+    border-radius: 10px;
+}
+
+#listen .btn-action {
+    cursor: pointer;
+    padding-top: 10px;
+    width: 30px;
+}
+
+#listen .btn-ctn, .infos-ctn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#listen .infos-ctn {
+    padding-top: 20px;
+}
+
+#listen .btn-ctn > div {
+    padding: 5px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+#listen .infos-ctn > div {
+    margin-bottom: 8px;
+    color: #fffae6;
+}
+
+#listen .first-btn {
+    margin-left: 3px;
+}
+
+#listen .duration {
+    margin-left: 10px;
+}
+
+#listen .title {
+    margin-left: 10px;
+    width: 60%;
+    text-align: center;
+}
+
+#listen .playlist-track-ctn {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#listen .playlist-track-ctn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#listen .playlist-track-ctn > div {
+    margin: 10px;
+}
+
+.playlist-info-track {
+    width: 80%;
+}
+
+#listen .playlist-info-track, .playlist-duration {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: #fffae6;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+#listen .playlist-ctn {
+    padding-bottom: 20px;
+}
+
+#listen .active-track {
+    background: rgba(255, 255, 255, 0.4);
+    color: #ffc266 !important;
+    font-weight: bold;
+}
+
+#listen .active-track > .playlist-info-track, .active-track > .playlist-duration, .active-track > .playlist-btn-play {
+    color: #ffc266 !important;
+}
+
+#listen .playlist-btn-play {
+    pointer-events: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#listen .fas {
+    color: #fffae6;
+    font-size: 20px;
+}
+
+#listen .album-title {
+    font-size: 1rem; /* Adjust size as needed */
+    color: #333; /* Adjust color as needed */
+    margin-top: 0.5rem; /* Adjust spacing as needed */
+}
+
