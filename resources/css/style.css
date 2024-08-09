@@ -1,5 +1,5 @@
 html, body {
-    background: url('https://newbridge-media.s3.us-east-2.amazonaws.com/band-photo-2024.jpg') no-repeat center center fixed;
+    background: url('/images/band-photo-2024.jpg') no-repeat center center;
     background-size: cover;
     color: #fff;
     font-family: 'Raleway', sans-serif;
@@ -15,6 +15,26 @@ html {
 
 .full-height {
     height: 100vh;
+}
+
+@media (max-width: 1024px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background: url('/images/band-photo-2024.jpg') no-repeat center center;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background: url('/images/band-photo-2024.jpg') no-repeat center center;
+        background-size: cover;
+    }
 }
 
 .flex-center {

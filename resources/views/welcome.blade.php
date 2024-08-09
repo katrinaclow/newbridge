@@ -29,7 +29,7 @@
                 </form>
             @else
                 <a href="{{ url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}" style="opacity: 0.5;">Register</a>
+{{--                <a href="{{ url('/register') }}" style="opacity: 0.5;">Register</a> --}}
             @endif
         </div>
     @endif
