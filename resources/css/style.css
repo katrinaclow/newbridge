@@ -20,20 +20,52 @@ html {
 @media (max-width: 1024px) {
     body {
         background-attachment: scroll;
+        background-size: contain; /* Ensures the image fits within the viewport */
+        background-position: center top; /* Centers the image at the top */
     }
 }
 
 @media (max-width: 768px) {
     body {
         background: url('/images/band-photo-2024.jpg') no-repeat center center;
-        background-size: cover;
+        background-size: contain; /* Scale the image to fit */
+        background-position: center top; /* Adjust the position for smaller screens */
+    }
+
+    .bandname {
+        font-size: 48px; /* Adjust for smaller screens */
+    }
+
+    .bio-title, .contact-title, .listen-title {
+        font-size: 48px; /* Scale down titles */
+    }
+
+    .bio-content, .contact-content, .listen-content {
+        font-size: 16px; /* Make body text more readable on mobile */
     }
 }
 
 @media (max-width: 480px) {
     body {
         background: url('/images/band-photo-2024.jpg') no-repeat center center;
-        background-size: cover;
+        background-size: contain; /* Ensure the entire image is visible */
+        background-position: top; /* Align image at the top */
+    }
+
+    .bandname {
+        font-size: 36px; /* Reduce font size for smaller mobile screens */
+    }
+
+    .bio-title, .contact-title, .listen-title {
+        font-size: 36px; /* Scale down titles further */
+    }
+
+    .bio-content, .contact-content, .listen-content {
+        font-size: 14px; /* Ensure readability on smaller mobile screens */
+    }
+
+    .content {
+        margin: 10px; /* Reduce margin to fit content better */
     }
 }
 
