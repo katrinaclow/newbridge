@@ -1,41 +1,55 @@
 <!-- resources/views/components/sections/contact.blade.php -->
+<!-- resources/views/components/sections/contact.blade.php -->
 <div id="contact" class="contact content">
-    <!-- <div class="contact-title">Contact Us</div> -->
-    <h2 class="contact-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 max-w-full overflow-hidden whitespace-normal">Contact Us</h2>
-    <div class="contact-content">
+    <h2 class="contact-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 text-center">Contact Us</h2>
+    <div class="contact-content max-w-2xl mx-auto">
         @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
+        <div class="alert alert-success bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6">
+            {{ session('success') }}
+        </div>
         @endif
 
-        <form action="{{ route('contact.submit') }}" method="POST"
-              class="contact-form bg-transparent shadow-md rounded-lg p-6">
-            @csrf
-            <div class="form-group mb-4">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required
-                       class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
+        <x-ui.form :action="route('contact.submit')">
+            <x-ui.form-input
+                type="text"
+                name="name"
+                label="Name"
+                required />
+
+            <x-ui.form-input
+                type="email"
+                name="email"
+                label="Email"
+                required />
+
+            <x-ui.form-input
+                type="text"
+                name="subject"
+                label="Subject"
+                required />
+
+            <x-ui.form-input
+                type="textarea"
+                name="message"
+                label="Message"
+                rows="4"
+                required />
+
+            <div class="flex justify-center mt-6">
+                <x-ui.button
+                    type="submit"
+                    variant="dark"
+                    size="lg"
+                    :full-width="false"
+                    class="group">
+                    <span class="flex items-center justify-center gap-2">
+                        Send Message
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </span>
+                </x-ui.button>
             </div>
-            <div class="form-group mb-4">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required
-                       class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
-            </div>
-            <div class="form-group mb-4">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required
-                       class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50">
-            </div>
-            <div class="form-group mb-4">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required
-                          class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"></textarea>
-            </div>
-            <button type="submit"
-                    class="submit-button bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                Send Message
-            </button>
-        </form>
+        </x-ui.form>
     </div>
 </div>
