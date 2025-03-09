@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
 
-        return redirect()->intended(route('welcome', [], false) . '#listen');
+        return redirect()->intended(route('home', [], false) . '#listen');
     }
 
     /**

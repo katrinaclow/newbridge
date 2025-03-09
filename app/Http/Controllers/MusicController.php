@@ -29,6 +29,6 @@ class MusicController extends Controller
             ];
         }
 
-        return view('welcome', compact('tracks'));
+        return view('pages.home', compact('tracks'));
     }
 }

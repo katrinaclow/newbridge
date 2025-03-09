@@ -1,16 +1,66 @@
+/* ===================================
+   1. FONT DECLARATIONS
+=================================== */
+@font-face {
+    font-family: 'SailorScrawl';
+    src: url('/Users/katrinaclow/Development/newbridge/public/fonts/Sailor-Scrawl.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SailorScrawlFancy';
+    src: url('/Users/katrinaclow/Development/newbridge/public/fonts/Sailor-Scrawl-Fancy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TattooSailor';
+    src: url('/Users/katrinaclow/Development/newbridge/public/fonts/TattooSailor.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tattoo';
+    src: url('/Users/katrinaclow/Development/newbridge/public/fonts/Tattoo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ===================================
+   2. BASE ELEMENTS
+=================================== */
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     background: url('/images/band-photo-2024.jpg') no-repeat center center;
     background-size: cover;
-    color: #fff;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
+    font-family: 'Open Sans', sans-serif;
     height: 100vh;
     margin: 0;
     overflow: auto;
 }
 
-html {
-    scroll-behavior: smooth;
+/* ===================================
+   3. LAYOUT & STRUCTURE
+=================================== */
+section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .full-height {
@@ -36,14 +86,38 @@ html {
 
 .content {
     text-align: center;
-    background: rgba(0, 0, 0, 0);
+    background: transparent;
     padding: 20px;
     border-radius: 10px;
     margin: 20px;
 }
 
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+/* ===================================
+   4. TYPOGRAPHY & TEXT STYLES
+=================================== */
+.bandname, .bio-title, .contact-title, .listen-title {
+    font-family: 'SailorScrawl', 'Open Sans', sans-serif;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    padding: 0 10px;
+    box-sizing: border-box;
+    line-height: 1.2;
+}
+
 .bandname {
-    font-size: 84px;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+.bio-title, .contact-title, .listen-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 20px;
+    background: transparent;
 }
 
 .links > a {
@@ -56,102 +130,116 @@ html {
     text-transform: uppercase;
 }
 
-.m-b-md {
-    margin-bottom: 30px;
+/* ===================================
+   5. SECTION STYLES
+=================================== */
+/* Remove duplicate background colors from section IDs */
+#hero, #bio, #listen, #contact {
+    background-color: transparent;
 }
 
-.bio {
-    background: rgba(0, 0, 0, 0.5);
+/* Make section containers transparent */
+.bio, .contact, .listen {
+    background: transparent;
     padding: 20px;
     border-radius: 10px;
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 800px;
 }
 
-.bio-title {
-    font-size: 64px;
-    margin-bottom: 20px;
-}
-
-.bio-content {
-    font-size: 18px;
-    line-height: 1.6;
+/* Apply a single background to content areas */
+.bio-content, .contact-content, .listen-content {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
     text-align: left;
+    line-height: 1.6;
+    font-size: 18px;
 }
 
 .bio-content p {
     margin-bottom: 20px;
+    color: #d9caca;
 }
 
-.contact {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 600px;
-}
-
-.contact-title {
-    font-size: 64px;
-    margin-bottom: 20px;
-}
-
-.contact-content {
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: left;
-}
-
+/* ===================================
+   6. FORM STYLES
+=================================== */
 .contact-form {
-    background: rgba(255, 255, 255, 0.8); /* Make the form background slightly opaque */
-    color: #fff; /* Set a dark color for text inside the form */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .form-input {
-    background-color: #fff; /* White background for input fields */
-    color: #333; /* Dark text color for input fields */
-    border: 1px solid #ddd; /* Light border for input fields */
-    padding: 10px; /* Add padding for better spacing */
-    font-size: 16px; /* Ensure font size is readable */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: rgba(73, 137, 255, 0.6);
+    outline: none;
 }
 
 .form-input::placeholder {
-    color: #aaa; /* Light color for placeholder text */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .submit-button {
-    background-color: #007bff; /* Set a blue background for the submit button */
-    color: #fff; /* White text color for the button */
-    border: none; /* Remove default border */
-    padding: 12px 20px; /* Add padding for the button */
-    font-size: 16px; /* Ensure font size is readable */
+    background-color: rgba(195, 183, 15, 0.76);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-.listen {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 600px;
+.submit-button:hover {
+    background-color: rgba(195, 183, 15, 0.9);
+    transform: translateY(-1px);
 }
 
-.listen-title {
-    font-size: 64px;
-    margin-bottom: 20px;
+/* Button helper classes */
+.button-hover-effect {
+    transform: translateY(0);
+    transition: transform 0.2s ease;
 }
 
-.listen-content {
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: left;
+.button-hover-effect:hover {
+    transform: translateY(-1px);
 }
 
-/* Music Player Styles */
+.button-focus-ring {
+    @apply focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800;
+}
+
+/* ===================================
+   7. MUSIC PLAYER STYLES
+=================================== */
 #listen .player-ctn {
     border-radius: 10px;
     width: 100%;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 20px auto;
 }
 
@@ -249,7 +337,9 @@ html {
     font-weight: bold;
 }
 
-#listen .active-track > .playlist-info-track, .active-track > .playlist-duration, .active-track > .playlist-btn-play {
+#listen .active-track > .playlist-info-track, 
+#listen .active-track > .playlist-duration, 
+#listen .active-track > .playlist-btn-play {
     color: #ffc266 !important;
 }
 
@@ -265,60 +355,97 @@ html {
 }
 
 #listen .album-title {
-    font-size: 1rem; /* Adjust size as needed */
-    color: #333; /* Adjust color as needed */
-    margin-top: 0.5rem; /* Adjust spacing as needed */
+    font-size: 1rem;
+    color: #fffae6;
+    margin-top: 0.5rem;
 }
 
-/* Media Queries for Responsive Design */
+/* ===================================
+   8. ANIMATIONS
+=================================== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+/* ===================================
+   9. RESPONSIVE STYLES
+=================================== */
 @media (max-width: 1024px) {
     body {
         background-attachment: scroll;
-        background-size: contain; /* Ensures the image fits within the viewport */
-        background-position: center top; /* Centers the image at the top */
+        background-size: contain;
+        background-position: center top;
+    }
+    
+    .scroll-indicator {
+        display: none;
     }
 }
 
 @media (max-width: 768px) {
+    section {
+        padding: 3rem 0;
+    }
+    
     body {
-        background: url('/images/band-photo-2024.jpg') no-repeat center center;
-        background-size: contain; /* Scale the image to fit */
-        background-position: center top; /* Adjust the position for smaller screens */
+        background-size: contain;
+        background-position: center top;
     }
 
-    .bandname {
-        font-size: 48px; /* Adjust for smaller screens */
+    .bio, .contact, .listen {
+        margin: 10px auto;
+        padding: 10px;
     }
-
-    .bio-title, .contact-title, .listen-title {
-        font-size: 48px; /* Scale down titles */
-    }
-
+    
     .bio-content, .contact-content, .listen-content {
-        font-size: 16px; /* Make body text more readable on mobile */
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .bandname {
+        font-size: 3rem;
+    }
+    
+    .bio-title, .contact-title, .listen-title {
+        font-size: 2rem;
+    }
+    
+    .content {
+        margin: 10px;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        background: url('/images/band-photo-2024.jpg') no-repeat center center;
-        background-size: contain; /* Ensure the entire image is visible */
-        background-position: top; /* Align image at the top */
+        background-size: contain;
+        background-position: top;
     }
+}
 
+@media (max-width: 320px) {
     .bandname {
-        font-size: 36px; /* Reduce font size for smaller mobile screens */
+        font-size: 2.5rem;
     }
-
+    
     .bio-title, .contact-title, .listen-title {
-        font-size: 36px; /* Scale down titles further */
-    }
-
-    .bio-content, .contact-content, .listen-content {
-        font-size: 14px; /* Ensure readability on smaller mobile screens */
-    }
-
-    .content {
-        margin: 10px; /* Reduce margin to fit content better */
+        font-size: 1.5rem;
     }
 }
